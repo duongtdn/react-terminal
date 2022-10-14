@@ -8,7 +8,7 @@ export default function decorate(Terminal) {
 
     with: (styleFactory) => (props) => {
 
-      const [content, setContent] = useState(props.content);
+      const [content, setContent] = useState([]);
 
       useEffect(
         () => setContent(
