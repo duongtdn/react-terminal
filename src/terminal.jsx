@@ -9,7 +9,7 @@ const Input = styled.input.attrs({ type: 'text'})`
   border: none;
   background: none;
   outline: none;
-  padding: 0 6px;
+  padding: 0;
   flex: 1;
   color: inherit;
   font-family: inherit;
@@ -46,19 +46,19 @@ export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily =
                     )
                   )
                 }
+                {
+                  interactive?
+                    <div style = {{display: 'inline'}} onClick={ e => e.stopPropagation()}>
+                      <Input  ref = {promptRef}
+                              value = {promptValue}
+                              onChange = {handlePromptChange}
+                              onKeyUp = {handlePromptKeyUp}
+                      />
+                    </div>
+                  :null
+                }
               </div>
-              {
-                interactive?
-                  <div style = {{display: 'flex'}} onClick={ e => e.stopPropagation()}>
-                    <span>&gt;</span>
-                    <Input  ref = {promptRef}
-                            value = {promptValue}
-                            onChange = {handlePromptChange}
-                            onKeyUp = {handlePromptKeyUp}
-                    />
-                  </div>
-                :null
-              }
+
             </ScrollBox>
           </div>
         </div>
