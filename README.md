@@ -2,8 +2,6 @@
 
 A customizable and interactive React terminal component for your web applications. It  adds a terminal-like interface, enabling interactive commands and rich text formatting in your projects.
 
-![React Terminal](https://github.com/duongtdn/doc/img/react-terminal-screenshot.png)
-
 ## Installation
 
 ```bash
