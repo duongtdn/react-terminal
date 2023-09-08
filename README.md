@@ -7,7 +7,7 @@ A customizable and interactive React terminal component for your web application
 ## Installation
 
 ```bash
-npm install @duongtdn/react-terminal
+npm install @duongtdn/react-terminal --save
 ```
 
 ## Basic Usage
