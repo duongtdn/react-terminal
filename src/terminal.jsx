@@ -18,7 +18,7 @@ const Input = styled.input.attrs({ type: 'text'})`
 
 const KEY = { Enter: 13 };
 
-export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily, interactive = false, onPrompt }) {
+export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily = 'Consolas', interactive = false, onPrompt }) {
 
   const [promptValue, setPromptValue] = useState('');
 
@@ -34,10 +34,9 @@ export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily, 
     <div style = {{padding: '0', height }} >
       <div style = {{display: 'flex', flexDirection: 'row', height: '100%'}}>
         <div style = {{padding: '8px 6px 8px 16px', height: '100%', flex: 1}}>
-          <div style = {{ display: 'flex', flexDirection: 'column', height: '100%'}} >
+          <div style = {{ display: 'flex', flexDirection: 'column', height: '100%', fontFamily: fontFamily}} >
             <ScrollBox  onClick = {e => promptRef.current && promptRef.current.focus()}
                         onMounted = {h => scrollHandler.current = h}
-                        fontFamily = {fontFamily}
             >
               <div onClick={ e => e.stopPropagation()}>
                 {
