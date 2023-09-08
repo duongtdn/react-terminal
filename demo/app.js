@@ -16,12 +16,12 @@ const data = [
   'This widget is used as an terminal in web application',
   'You can custom the font for the terminal via fontFamily property',
   'It can be styled by using decoration',
-  'End',
+  'Enjoy!!!',
 ];
 
 const Demo = () => {
 
-  const [content, setContent] = useState([]);
+  const [content, setContent] = useState('');
   const [interactive, setInteractive] = useState(false);
   const [font, setFont] = useState();
 
