@@ -18,24 +18,33 @@ const Input = styled.input.attrs({ type: 'text'})`
 
 const KEY = { Enter: 13 };
 
-export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily = 'Consolas', interactive = false, onPrompt }) {
+export default function({ content, height, whiteSpace = 'pre-wrap', fontFamily = 'Consolas', interactive = false, onPrompt, terminal }) {
 
   const [promptValue, setPromptValue] = useState('');
 
   const scrollHandler = useRef();
 
   useEffect(() => {
-    scrollHandler.current && scrollHandler.current.scrollToBottom();
+    scrollHandler.current?.scrollToBottom();
   }, [content]);
 
   const promptRef = useRef();
+
+  useEffect(() => {
+    terminal?.bindHandler({
+      prompt: {
+        focus: () => promptRef.current?.focus(),
+        clear: () => setPromptValue(''),
+      }
+    });
+  }, []);
 
   return (
     <div style = {{padding: '0', height }} >
       <div style = {{display: 'flex', flexDirection: 'row', height: '100%'}}>
         <div style = {{padding: '8px 6px 8px 16px', height: '100%', flex: 1}}>
           <div style = {{ display: 'flex', flexDirection: 'column', height: '100%', fontFamily: fontFamily}} >
-            <ScrollBox  onClick = {e => promptRef.current && promptRef.current.focus()}
+            <ScrollBox  onClick = {e =>  promptRef.current?.focus()}
                         onMounted = {h => scrollHandler.current = h}
             >
               <div onClick={ e => e.stopPropagation()}>
